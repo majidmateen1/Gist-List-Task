@@ -1,0 +1,76 @@
+.main-container {
+  max-width: 550px;
+  margin: auto;
+  margin-top: 10px;
+  border-bottom: 1px solid #eef0f1;
+  .top-div {
+    display: flex;
+    justify-content: space-between;
+
+    .profile-div {
+      display: flex;
+      align-items: center;
+      color: #0265d6;
+      font-size: 12px;
+
+      .ant-avatar {
+        margin-right: 5px;
+      }
+    }
+
+    .icons-div {
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      color: #0265d6;
+      font-size: 12px;
+      text-decoration: none;
+
+      .files-div {
+        > a {
+          text-decoration: none; /* Remove the underline */
+        }
+      }
+
+      .ant-image {
+        margin-right: 5px;
+      }
+
+      > div {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .date-div {
+    display: flex;
+    font-size: 11px;
+    margin-top: 5px;
+
+    .created-div {
+      margin-right: 10px;
+    }
+  }
+
+  .description-div {
+    margin-top: 15px;
+    font-size: 14px;
+    word-break: break-all;
+  }
+
+  .files-name {
+    display: flex;
+    margin-top: 15px;
+    color: #0265d6;
+    margin-bottom: 20px;
+
+    .ant-image {
+      margin-right: 5px;
+    }
+
+    > div {
+      display: flex;
+      margin-right: 5px;
+    }
+  }
+}

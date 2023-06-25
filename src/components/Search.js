@@ -1,17 +1,33 @@
-import React from 'react'
-import styled from 'styled-components'
-import Octicon from 'react-octicon'
+import React from "react";
+import styled from "styled-components";
+import Octicon from "react-octicon";
+import { useDispatch } from "react-redux";
+import { getUserName, setGistListUserName } from "../redux/Actions";
+import { debounce } from "lodash";
 
 const Search = () => {
+  const dispatch = useDispatch();
+
+  const debouncedOnChangeInput = debounce((value) => {
+    dispatch(getUserName(value));
+  }, 1000); // 1000 milliseconds = 1 second
+
+  function onChangeInput(e) {
+    // Call the debounced version of the function with the input value
+    debouncedOnChangeInput(e.target.value);
+  }
   return (
     <Wrapper>
       <InputBox>
-      <Octicon name="search" />
-      <Input placeholder="Search Gists for the username"/>
+        <Octicon name="search" />
+        <Input
+          placeholder="Search Gists for the username"
+          onChange={(e) => onChangeInput(e)}
+        />
       </InputBox>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   padding: 8px;
@@ -33,9 +49,9 @@ const Input = styled.input`
   width: 100%;
   font-size: 16px;
 
-  &:focus{
+  &:focus {
     outline: 0;
   }
 `;
 
-export default Search
+export default Search;
