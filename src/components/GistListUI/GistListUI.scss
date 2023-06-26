@@ -20,16 +20,12 @@
 
     .icons-div {
       display: flex;
-      // justify-content: space-between;
       align-items: center;
       color: #0265d6;
       font-size: 12px;
-      text-decoration: none;
 
-      .files-div {
-        > a {
-          text-decoration: none; /* Remove the underline */
-        }
+      a {
+        text-decoration: none !important;
       }
 
       .ant-image {
@@ -64,13 +60,22 @@
     color: #0265d6;
     margin-bottom: 20px;
 
+    .file-items {
+      margin-right: 10px;
+    }
+
     .ant-image {
       margin-right: 5px;
     }
 
-    > div {
-      display: flex;
-      margin-right: 5px;
+    a {
+      font-size: 11px;
+      color: #0265d6;
+      text-decoration: none !important;
+
+      span {
+        vertical-align: text-top;
+      }
     }
   }
 }

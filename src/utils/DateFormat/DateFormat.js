@@ -1,4 +1,4 @@
-import React from "react";
+// Function to convert date in MM/DD/YYYY format
 const dayjs = require("dayjs");
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);

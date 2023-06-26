@@ -5,13 +5,13 @@ import {
   SET_GIST_LIST_USER_NAME,
 } from "../redux/Actions";
 
+// Reducer for managing the gist list state and gist list by user name
 const gistListReducer = (state = [], action) => {
   switch (action.type) {
     case SET_GIST_LIST:
       return action.payload;
 
     case SET_GIST_LIST_USER_NAME:
-      console.log("reducerrrrrrrr1");
       return action.payload;
 
     default:
@@ -19,17 +19,18 @@ const gistListReducer = (state = [], action) => {
   }
 };
 
+// Reducer for managing the username state
 const gistUserName = (state = [], action) => {
-  console.log("rrrrrrrrr", action);
   switch (action.type) {
     case GET_USER_NAME:
-      console.log("reducerrrrrrrr2");
       return action.payload;
+
     default:
       return state;
   }
 };
 
+// Combine the reducers into a root reducer
 const rootReducer = combineReducers({
   gistList: gistListReducer,
   getUserName: gistUserName,

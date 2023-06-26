@@ -8,14 +8,17 @@ import { debounce } from "lodash";
 const Search = () => {
   const dispatch = useDispatch();
 
+  // Debounced onChangeInput function
   const debouncedOnChangeInput = debounce((value) => {
     dispatch(getUserName(value));
   }, 1000); // 1000 milliseconds = 1 second
 
+  // function for input onChange event
   function onChangeInput(e) {
-    // Call the debounced version of the function with the input value
+    // Call the debounced of the function with the input value
     debouncedOnChangeInput(e.target.value);
   }
+
   return (
     <Wrapper>
       <InputBox>

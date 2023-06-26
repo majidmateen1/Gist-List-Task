@@ -8,11 +8,18 @@ import ApiDefinitions from "./components/ApiDefinitions";
 
 const App = () => {
   return (
+    // Wrap the entire application with the Redux Provider
     <Provider store={store}>
       <Wrapper className="App" data-testid="app">
+        {/* Render the Header component */}
         <Header />
+
+        {/* Render the GistList component */}
         <GistList />
+
+        {/* Render the ApiDefinitions component */}
         <ApiDefinitions />
+
         <GlobalStyles />
       </Wrapper>
     </Provider>
