@@ -4,10 +4,11 @@ import { setGistList, setGistListUserName } from "../redux/Actions";
 import { Octokit } from "@octokit/rest";
 
 function ApiDefinitions() {
-  const octokit = new Octokit({
-    auth: "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",
-  });
+  const octokit = new Octokit();
+
   const dispatch = useDispatch();
+
+  // Get the user name from redux store
   const getUserName = useSelector((state) => state.getUserName);
 
   useEffect(() => {
@@ -15,9 +16,11 @@ function ApiDefinitions() {
   }, []);
 
   useEffect(() => {
+    // Check if user name is empty
     if (getUserName === "") {
       getPublicGists();
     } else {
+      // If user name is not empty then search the gist list with specific user name
       getPublicGistsByUsername(getUserName);
     }
   }, [getUserName]);
@@ -36,6 +39,7 @@ function ApiDefinitions() {
   // Function to retrieve public gists by username
   async function getPublicGistsByUsername(userName) {
     try {
+      // Check if user name exist then call API for specific user name
       if (userName) {
         const response = await octokit.gists.listForUser({
           username: userName,
